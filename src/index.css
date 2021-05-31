@@ -1,5 +1,7 @@
-body {
+* {
+  padding: 0;
   margin: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +13,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+a {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+/*  - - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - - */
+
+@import url('./components/headers/header.css');
+
+/*  - - - - - - - - - - - - - - Employees - - - - - - - - - - - - - - - - - */
+
+@import url('./components/mainpages/employees/employees.css');
+
+/*  - - - - - - - - - - - - - - Employee Item - - - - - - - - - - - - - - - - - */
+@import url('./components/mainpages/Utils/employeeItem/employeeItem.css');
+
+/*  - - - - - - - - - - - - - - Employee Detail - - - - - - - - - - - - - - - - - */
+@import url('./components/mainpages/employeeDetail/employeeDetail.css');
+
+/*  - - - - - - - - - - - - - - Loading Spinner - - - - - - - - - - - - - - - - - */
+@import url('./components/mainpages/Utils/loading/loading.css');
+
+/*  - - - - - - - - - - - - - - Login - - - - - - - - - - - - - - - - - */
+@import url('./components/mainpages/auth/login.css');
