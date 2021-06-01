@@ -21,7 +21,7 @@ export default function Header() {
       </div>
       <div className='logo'>
         <h1>
-          <Link to='/'>DOJO</Link>
+          <Link to='/'> Projekt</Link>
         </h1>
       </div>
       <ul>

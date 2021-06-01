@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Login() {
+  axios.defaults.withCredentials = true;
   const [member, setMember] = useState({
     email: '',
     password: '',
@@ -16,9 +17,20 @@ export default function Login() {
     e.preventDefault();
     try {
       console.log(member);
-      await axios.post('http://localhost:5000/member/login', { ...member });
+      const res = await axios({
+        method: 'post',
+        url: 'http://localhost:5000/member/login',
+        data: { ...member },
+        withCredentials: 'false',
+        headers: {
+          Authorization: 'Bearer ', //the token is a variable which holds the token
+        },
+      });
       localStorage.setItem('firstLogin', true);
+      console.log(res);
+      document.cookie = `refreshtoken=${res.data.refreshToken};path=http://localhost:5000/member/refresh_token"`;
       window.location.href = '/';
+      console.log(document.cookie, 'cookie?');
     } catch (err) {
       alert(err.response.data.msg);
     }
@@ -44,7 +56,6 @@ export default function Login() {
           value={member.password}
           onChange={onChangeInput}
           required
-          autoComplete='on'
         />
         <div className='row'>
           <button type='submit'>Login</button>
